@@ -15,6 +15,9 @@ kotlin {
         browser {
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
+                cssSupport {
+                    enabled.set(true)
+                }
             }
         }
         binaries.executable()
@@ -42,6 +45,14 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(projects.shared)
+
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+        }
+        val wasmJsMain by getting {
+            dependencies {
+                implementation(npm("monaco-editor", "0.45.0"))
+                implementation(npm("monaco-editor-webpack-plugin", "7.1.0"))
+            }
         }
     }
 }
@@ -79,6 +90,7 @@ android {
         debugImplementation(libs.compose.ui.tooling)
     }
 }
+
 
 
 compose.experimental {

@@ -1,0 +1,59 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#monaco {
+  flex: 1 0 0;
+  width: 100%;
+}
+
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+.path-form {
+  display: flex;
+}
+
+.path-form label {
+  flex: 0 0 0;
+}
+
+.path-form div {
+  flex: 1 0 0;
+  max-width: 33%;
+}
+
+.path-form button {
+  flex: 0 0 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header form, .header form div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
