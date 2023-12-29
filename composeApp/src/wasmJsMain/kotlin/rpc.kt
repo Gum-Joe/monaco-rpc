@@ -24,17 +24,22 @@ inline fun <reified T> genericJsonPostRequest (path: String, body: T) =
         referrer = "about:client",
     ))
 
-fun openFile(monaco: IStandaloneCodeEditor, path: String): String {
-    println("Opening file: $path")
+fun openFile(monaco: IStandaloneCodeEditor, path: String) {
 
     // Make POST request to server
     genericJsonPostRequest("http://localhost:$SERVER_PORT/file.open", FileOpenRequest(path)).then {
-        println("Made it")
         it.text().then { text ->
-            println("Got text: $text")
             monaco.setValue(text.toString())
             text
         }
     }
-    return "Hello World"
+}
+
+fun writeFile(path: String, contents: String) {
+    // Make POST request to server
+    genericJsonPostRequest("http://localhost:$SERVER_PORT/file.save", FileSaveRequest(path = path, contents = contents)).then {
+        it.text().then { text ->
+            text
+        }
+    }
 }

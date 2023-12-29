@@ -10,8 +10,7 @@ fun main() {
 
     // Init monaco
     val options = MonacoSettings().apply {
-        value = "fun main() {\n    println(\"Hello World\")\n}"
-        language = "kotlin"
+        value = "Open a file to get started"
         theme = "vs-dark"
         automaticLayout = true
     }
@@ -20,15 +19,18 @@ fun main() {
         options = options,
     )
 
-    // Populate #path with home dir
     document.getElementById("open")!!.addEventListener("click") {
         val path = document.getElementById("path")!! as HTMLInputElement
         val scope = CoroutineScope(kotlinx.coroutines.MainScope().coroutineContext)
 
-        scope.launch {
-            val contents = openFile(editor, path.value)
-            println(contents)
-        }
+        openFile(editor, path.value)
+    }
+
+    document.getElementById("save")!!.addEventListener("click") {
+        val path = document.getElementById("path")!! as HTMLInputElement
+        val scope = CoroutineScope(kotlinx.coroutines.MainScope().coroutineContext)
+
+        writeFile(path.value, editor.getValue())
     }
 
 

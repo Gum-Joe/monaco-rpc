@@ -46,13 +46,31 @@
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
-.header form, .header form div{
+.header form, .header form .inputs {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 0 0 0 !important;
+}
+
+.path-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 
