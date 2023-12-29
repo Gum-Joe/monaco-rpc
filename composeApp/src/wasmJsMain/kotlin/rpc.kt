@@ -1,5 +1,4 @@
 import kotlinx.browser.window
-import kotlinx.coroutines.await
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.w3c.fetch.*

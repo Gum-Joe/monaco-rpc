@@ -24,6 +24,3 @@ dependencyResolutionManagement {
 include(":composeApp")
 include(":server")
 include(":shared")
-include("rpc")
-include("rpc:shared")
-findProject(":rpc:shared")?.name = "shared"

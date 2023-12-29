@@ -2,7 +2,6 @@ package com.kishan.monaocrpc
 
 import FileOpenRequest
 import FileSaveRequest
-import Greeting
 import SERVER_PORT
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
@@ -15,7 +14,6 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.json.Json
-import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -51,7 +49,7 @@ fun Application.module() {
 
     routing {
         get("/") {
-            call.respondText("Ktor: ${Greeting().greet()}")
+            call.respondText("Ktor: Hello!")
         }
         // POST file.open with params: path
         post("/file.open") {
@@ -70,7 +68,7 @@ fun Application.module() {
             }
         }
 
-        // Update a file, providing it's contents
+        // Update a file, providing its contents
         post("/file.save") {
             val req = call.receive<FileSaveRequest>();
 
