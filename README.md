@@ -1,5 +1,5 @@
 # Kotlin/WASM Monaco Editor
-This is a simple project that uses Kotlin/WASM interop to create a simple HTML page that allow the user to open a text file on their machine and edit it with the Monaco editor.
+This is a simple project that uses Kotlin/WASM interop to create a simple HTML page that allows the user to open a text file on their machine and edit it with the Monaco editor.
 The project uses a RPC-based HTTP server to faciliate file reading and writing, as no pure-RPC library that supported Kotlin/WASM could be found.
 
 The server has two routes:
