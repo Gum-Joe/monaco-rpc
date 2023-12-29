@@ -8,17 +8,6 @@ fun MonacoSettings(): IStandaloneEditorConstructionOptions = js("({ })")
 
 fun main() {
 
-    // Populate #path with home dir
-    document.getElementById("open")!!.addEventListener("click") {
-        val path = document.getElementById("path")!! as HTMLInputElement
-        val scope = CoroutineScope(kotlinx.coroutines.MainScope().coroutineContext)
-
-        scope.launch {
-            val contents = openFile(path.value)
-            println(contents)
-        }
-    }
-
     // Init monaco
     val options = MonacoSettings().apply {
         value = "fun main() {\n    println(\"Hello World\")\n}"
@@ -30,6 +19,17 @@ fun main() {
         domElement = document.getElementById("monaco")!!,
         options = options,
     )
+
+    // Populate #path with home dir
+    document.getElementById("open")!!.addEventListener("click") {
+        val path = document.getElementById("path")!! as HTMLInputElement
+        val scope = CoroutineScope(kotlinx.coroutines.MainScope().coroutineContext)
+
+        scope.launch {
+            val contents = openFile(editor, path.value)
+            println(contents)
+        }
+    }
 
 
 
